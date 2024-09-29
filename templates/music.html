@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Michele Grimaldi - Music{% endblock %}
+
+{% block content %}
+<section id="music-list">
+    <h2>My Tracks</h2>
+    <audio id="audio-player" controls controlsList="nodownload">
+        <source src="{{ url_for('music_files', filename='DEMO.wav') }}" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    <canvas id="audio-visualizer" width="600" height="100"></canvas>
+    <p>More tracks available on <a href="https://michelegrimaldi014.bandcamp.com/">Bandcamp</a>.</p>
+</section>
+
+<section id="video-preview">
+    <h2>Video Preview</h2>
+    <video controls width="600">
+        <source src="{{ url_for('music_files', filename='Sci-Fi (1727550493537).mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<script>const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const audioElement = document.getElementById('audio-player');
+    const audioSrc = audioCtx.createMediaElementSource(audioElement);
+    const analyser = audioCtx.createAnalyser();
+
+    audioSrc.connect(analyser);
+    analyser.connect(audioCtx.destination);
+
+    analyser.fftSize = 256;
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    const canvas = document.getElementById('audio-visualizer');
+    const canvasCtx = canvas.getContext('2d');
+
+    function draw() {
+        requestAnimationFrame(draw);
+
+        analyser.getByteFrequencyData(dataArray);
+
+        canvasCtx.fillStyle = 'rgb(0, 0, 0)';
+        canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const barWidth = (canvas.width / bufferLength) * 2.5;
+        let barHeight;
+        let x = 0;
+
+        for (let i = 0; i < bufferLength; i++) {
+            barHeight = dataArray[i];
+
+            canvasCtx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
+            canvasCtx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
+
+            x += barWidth + 1;
+        }
+    }
+
+    audioElement.onplay = function() {
+        audioCtx.resume().then(() => {
+            draw();
+        });
+    };</script>
+{% endblock %}
+
+
+
+
+
+

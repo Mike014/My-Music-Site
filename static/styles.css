@@ -1,0 +1,133 @@
+/* Stili generali */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+}
+
+/* Header */
+header {
+    background-color: #1a1a1a;
+    color: #ff00ff;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+        nav ul li a {
+            color: #ff00ff;
+            text-decoration: none;
+            font-family: 'Bangers', cursive;
+        }
+
+/* Sezioni */
+section {
+    padding: 20px;
+    border: 2px solid #ff00ff;
+    margin: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+}
+
+/* Stili specifici per la pagina music.html */
+#music-list h2, #video-preview h2 {
+    font-family: 'Bangers', cursive;
+    color: #00ff00;
+    text-shadow: 2px 2px #ff00ff;
+}
+
+audio, video {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    color: #ff00ff;
+}
+
+/* Stili specifici per la pagina contact.html */
+#contact-info {
+    background-color: #1a1a1a;
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+    #contact-info h2 {
+        font-family: 'Bangers', cursive;
+        color: #00ff00;
+        text-shadow: 2px 2px #ff00ff;
+    }
+
+    #contact-info p {
+        font-family: 'Courier New', Courier, monospace;
+        color: #ff00ff;
+    }
+
+    #contact-info a {
+        color: #00ff00;
+        text-decoration: none;
+    }
+
+        #contact-info a:hover {
+            text-decoration: underline;
+        }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+    color: #ff00ff;
+    font-family: 'Bangers', cursive;
+}
+
+/* Effetto Neon */
+.neon-text {
+    color: #fff;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
+}
+
+.neon-border {
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
+    border-radius: 10px;
+}
+
+/* Stili per centrare il video */
+#bio div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+audio {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+
+
+
